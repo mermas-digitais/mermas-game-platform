@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dudaru.ogg-1b9dadcef73cf97469dbcdd8226b5932.oggstr"
+
+[deps]
+
+source_file="res://Musicas/dudaru.ogg"
+dest_files=[ "res://.import/dudaru.ogg-1b9dadcef73cf97469dbcdd8226b5932.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

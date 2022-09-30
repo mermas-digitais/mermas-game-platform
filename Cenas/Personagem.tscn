@@ -1,0 +1,330 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Personagens/Lil Wiz/Idle_(32 x 32).png" type="Texture" id=1]
+[ext_resource path="res://Assets/Personagens/Lil Wiz/Running_(32 x 32).png" type="Texture" id=2]
+[ext_resource path="res://Musicas/Audios/jump1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Personagens/Lil Wiz/Jumping_(32 x 32).png" type="Texture" id=4]
+[ext_resource path="res://Assets/Personagens/Pink Man/Hit (32x32).png" type="Texture" id=5]
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends KinematicBody2D
+
+#variaveis
+var velocidadeXY = Vector2.ZERO
+var velMovimento = 400
+var gravidade = 1200
+var pulo = -720
+var isGrounded
+onready var raycasts = $raycasts
+var vidas = 3
+var maxVidas = 3
+
+
+func _physics_process(delta: float) -> void:
+	velocidadeXY.y += gravidade * delta #personagem com gravidade
+	_get_input()
+	velocidadeXY = move_and_slide(velocidadeXY)
+	isGrounded = _check_is_ground()
+	
+	_set_animation()
+	
+#movimento do personagem, que pode alterar ora para a direita, ora para a esquerda 
+func _get_input():
+	velocidadeXY.x = 0 
+	var movimento = int(Input.is_action_pressed(\"mover_direita\")) - int(Input.is_action_pressed(\"mover_esquerda\"))
+	velocidadeXY.x = lerp(velocidadeXY.x, velMovimento * movimento, 0.2)
+	
+	if movimento !=0:
+		$Textura.scale.x = movimento
+		
+#Faz o personagem pular
+func _input(event: InputEvent)->void:
+	if event.is_action_pressed(\"pular\") && isGrounded:
+		velocidadeXY.y = pulo/2
+		$AudioPular.play()
+		 
+#verifica se o personagem esta no chão para colocar isGround como true ou false
+func _check_is_ground():
+	for raycast in raycasts.get_children():
+		if raycast.is_colliding():
+			return true
+			
+	return false
+		
+#mudar as animações
+func _set_animation():
+	var animar=\"Parado\"
+	
+	if !isGrounded:
+		animar = \"Pular\"
+	elif velocidadeXY.x != 0:
+		animar = \"Correr\"
+	
+	if $AnimationPlayer.assigned_animation != animar:
+		$AnimationPlayer.play(animar)
+	
+		
+func gameOver():
+	if vidas < 1:
+		queue_free()
+		get_tree().change_scene(\"res://Interface/GameOver.tscn\")
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+"
+
+[sub_resource type="Animation" id=5]
+resource_name = "Correr"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Textura:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Textura:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Morte"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Textura:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Textura:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Parado"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Textura:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Textura:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Pular"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Textura:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Textura:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Textura:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 8 )
+
+[node name="Personagem" type="KinematicBody2D"]
+light_mask = 2
+script = SubResource( 4 )
+
+[node name="Textura" type="Sprite" parent="."]
+position = Vector2( 0, -16 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Parado"
+anims/Correr = SubResource( 5 )
+anims/Morte = SubResource( 6 )
+anims/Parado = SubResource( 7 )
+anims/Pular = SubResource( 8 )
+anims/RESET = SubResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -8 )
+shape = SubResource( 3 )
+
+[node name="raycasts" type="Node2D" parent="."]
+
+[node name="raycast" type="RayCast2D" parent="raycasts"]
+position = Vector2( -7, 0 )
+enabled = true
+cast_to = Vector2( 0, 12 )
+collision_mask = 2
+
+[node name="raycast2" type="RayCast2D" parent="raycasts"]
+light_mask = 2
+position = Vector2( 7, 0 )
+enabled = true
+cast_to = Vector2( 0, 12 )
+collision_mask = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = -45
+limit_top = -50
+limit_bottom = 330
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.4
+drag_margin_top = 0.3
+drag_margin_right = 0.4
+drag_margin_bottom = 0.3
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="AudioPular" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0
