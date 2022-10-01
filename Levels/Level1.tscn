@@ -2605,9 +2605,6 @@ centered = false
 [node name="FallZone" type="Area2D" parent="."]
 position = Vector2( 656, 320 )
 script = ExtResource( 10 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AudioGameOver" type="AudioStreamPlayer2D" parent="FallZone"]
 visible = false
