@@ -41,8 +41,9 @@ func _get_input():
 		
 #Faz o personagem pular
 func _input(event: InputEvent)->void:
-	if event.is_action_pressed(\"pular\") && isGrounded:
+	if event.is_action_pressed(\"pular\") && isGrounded || ControlButtons.upButton == true:
 		velocidadeXY.y = pulo/2
+		print(ControlButtons.upButton)
 		$AudioPular.play()
 		 
 #verifica se o personagem esta no chão para colocar isGround como true ou false
@@ -78,10 +79,7 @@ func gameOver():
 	
 	
 	
-	
-	
-	
-	
+
 "
 
 [sub_resource type="Animation" id=11]
