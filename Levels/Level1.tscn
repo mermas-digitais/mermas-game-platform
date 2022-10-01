@@ -2523,16 +2523,18 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 133/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=62]
-extents = Vector2( 536, 13 )
+extents = Vector2( 568, 13 )
 
 [node name="Level1" type="Node2D"]
+position = Vector2( 144, 112 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 light_mask = 1
-position = Vector2( 16, -16 )
+position = Vector2( -112, -32 )
 collision_mask = 14
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -144, -112 )
 tile_set = SubResource( 5 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 2
@@ -2603,7 +2605,7 @@ texture = ExtResource( 8 )
 centered = false
 
 [node name="FallZone" type="Area2D" parent="."]
-position = Vector2( 656, 320 )
+position = Vector2( -96, 208 )
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
@@ -2614,7 +2616,7 @@ visible = false
 stream = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone"]
-position = Vector2( 504, 13 )
+position = Vector2( 536, 13 )
 shape = SubResource( 62 )
 
 [node name="AudioFundo" type="AudioStreamPlayer2D" parent="."]
