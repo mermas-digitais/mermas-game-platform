@@ -88,7 +88,6 @@ margin_right = 212.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
 script = ExtResource( 5 )
-minutos = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Control2"]
 margin_right = 32.0

@@ -1,6 +1,6 @@
 extends Control
 
-export (int) var minutos = 0
+export (int) var minutos = 2
 export (int) var segundos = 0
 
 #atualiza os tempo na tela

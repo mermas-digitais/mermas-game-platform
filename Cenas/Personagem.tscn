@@ -67,6 +67,8 @@ func _set_animation():
 		animar = \"Pular\"
 	elif velocidadeXY.x != 0:
 		animar = \"Correr\"
+	if velocidadeXY.y != 0 && !isGrounded:
+		animar = \"Caindo\"
 	
 	if $AnimationPlayer.assigned_animation != animar:
 		$AnimationPlayer.play(animar)
@@ -328,11 +330,14 @@ extents = Vector2( 8, 8 )
 
 [node name="Personagem" type="KinematicBody2D"]
 light_mask = 2
+collision_mask = 94
 script = SubResource( 4 )
 
 [node name="Textura" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
-texture = ExtResource( 4 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Parado"
