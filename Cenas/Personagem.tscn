@@ -47,7 +47,7 @@ func _get_input():
 		
 #Faz o personagem pular
 func _input(event: InputEvent)->void:
-	if event.is_action_pressed(\"pular\") || Global.upButton && isGrounded:
+	if event.is_action_pressed(\"pular\") && isGrounded || Global.upButton && isGrounded:
 		velocidadeXY.y = pulo/2
 		$AudioPular.play()		
 		 
