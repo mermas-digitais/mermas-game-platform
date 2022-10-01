@@ -27,24 +27,29 @@ func _physics_process(delta: float) -> void:
 	_get_input()
 	velocidadeXY = move_and_slide(velocidadeXY)
 	isGrounded = _check_is_ground()
-	
 	_set_animation()
 	
 #movimento do personagem, que pode alterar ora para a direita, ora para a esquerda 
 func _get_input():
 	velocidadeXY.x = 0 
-	var movimento = int(Input.is_action_pressed(\"mover_direita\")) - int(Input.is_action_pressed(\"mover_esquerda\"))
-	velocidadeXY.x = lerp(velocidadeXY.x, velMovimento * movimento, 0.2)
-	
-	if movimento !=0:
-		$Textura.scale.x = movimento
+	var movimentoD = 0
+	if Input.is_action_pressed(\"mover_direita\") || Global.rightButton:
+		movimentoD = 1
+		velocidadeXY.x = lerp(velocidadeXY.x, velMovimento * movimentoD, 0.2)
+			
+	if Input.is_action_pressed(\"mover_esquerda\") || Global.leftButton:
+		movimentoD = -1
+		velocidadeXY.x = lerp(velocidadeXY.x, velMovimento * movimentoD, 0.2)
+		
+
+	if movimentoD !=0 :
+		$Textura.scale.x = movimentoD
 		
 #Faz o personagem pular
 func _input(event: InputEvent)->void:
-	if event.is_action_pressed(\"pular\") && isGrounded || ControlButtons.upButton == true:
+	if event.is_action_pressed(\"pular\") || Global.upButton && isGrounded:
 		velocidadeXY.y = pulo/2
-		print(ControlButtons.upButton)
-		$AudioPular.play()
+		$AudioPular.play()		
 		 
 #verifica se o personagem esta no chão para colocar isGround como true ou false
 func _check_is_ground():
@@ -72,14 +77,6 @@ func gameOver():
 		queue_free()
 		get_tree().change_scene(\"res://Interface/GameOver.tscn\")
 	
-	
-	
-	
-	
-	
-	
-	
-
 "
 
 [sub_resource type="Animation" id=11]

@@ -16,8 +16,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Scripts/Global.gd"
 ControlButtons="*res://Scripts/ControlButtons.gd"
+Global="*res://Scripts/Global.gd"
 
 [display]
 
@@ -27,6 +27,10 @@ window/size/test_width=640
 window/size/test_height=384
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[global]
+
+WI=false
 
 [gui]
 
@@ -74,6 +78,10 @@ pular={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
