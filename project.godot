@@ -17,7 +17,6 @@ config/icon="res://Assets/Personagens/Lil Wiz/Jumping_(32 x 32).png"
 
 [autoload]
 
-ControlButtons="*res://Scripts/ControlButtons.gd"
 Global="*res://Scripts/Global.gd"
 
 [display]
