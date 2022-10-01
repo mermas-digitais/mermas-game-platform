@@ -39,12 +39,12 @@ normal = ExtResource( 9 )
 passby_press = true
 
 [node name="leftButton" type="TouchScreenButton" parent="Control"]
-position = Vector2( 240, 144 )
+position = Vector2( 319, 152 )
 scale = Vector2( 0.032, 0.032 )
 normal = ExtResource( 7 )
 
 [node name="rightButton" type="TouchScreenButton" parent="Control"]
-position = Vector2( 271, 145 )
+position = Vector2( 350, 153 )
 scale = Vector2( 0.03, 0.03 )
 normal = ExtResource( 8 )
 
