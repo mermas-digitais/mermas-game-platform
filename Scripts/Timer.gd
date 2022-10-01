@@ -1,7 +1,7 @@
 extends Control
 
 export (int) var minutos = 2
-export (int) var segundos = 0
+export (int) var segundos = 60
 
 #atualiza os tempo na tela
 func _process(delta:float) -> void:
