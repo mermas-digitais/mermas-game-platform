@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Platforms/Jump (28x28).png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 11.5, 6 )
+extents = Vector2( 10.5, 3.5 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -132,7 +132,7 @@ script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 16
-position = Vector2( -1.5, 7 )
+position = Vector2( -1.5, 3.5 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

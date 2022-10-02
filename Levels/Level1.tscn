@@ -2725,7 +2725,7 @@ position = Vector2( 222, 116 )
 process_priority = 1
 stream = ExtResource( 13 )
 autoplay = true
-area_mask = 3
+area_mask = 2
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 15 )]
 
