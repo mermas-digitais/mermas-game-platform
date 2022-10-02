@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Items/Checkpoints/clock.png" type="Texture" id=1]
 [ext_resource path="res://Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Outros/Menu/Buttons/leftButton.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Outros/Menu/Buttons/rightButton.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Outros/Menu/Buttons/upButton.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Items/Checkpoints/FruitsBag.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/ControlButtons.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=3]
@@ -60,24 +61,40 @@ size_flags_horizontal = 3
 script = ExtResource( 6 )
 
 [node name="vida1" type="TextureRect" parent="HBoxContainer/Control"]
-margin_right = 32.0
-margin_bottom = 32.0
+anchor_left = 0.154
+anchor_top = 0.5
+anchor_right = 0.154
+anchor_bottom = 0.5
+margin_left = -16.016
+margin_top = -15.5
+margin_right = 15.984
+margin_bottom = 16.5
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 2
 
 [node name="vida2" type="TextureRect" parent="HBoxContainer/Control"]
-margin_left = 32.0
-margin_right = 64.0
-margin_bottom = 32.0
+anchor_left = 0.462
+anchor_top = 0.5
+anchor_right = 0.462
+anchor_bottom = 0.5
+margin_left = -16.048
+margin_top = -15.5
+margin_right = 15.952
+margin_bottom = 16.5
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 2
 
 [node name="vida3" type="TextureRect" parent="HBoxContainer/Control"]
-margin_left = 64.0
-margin_right = 96.0
-margin_bottom = 32.0
+anchor_left = 0.769
+anchor_top = 0.5
+anchor_right = 0.769
+anchor_bottom = 0.5
+margin_left = -15.976
+margin_top = -15.5
+margin_right = 16.024
+margin_bottom = 16.5
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 2
@@ -90,28 +107,40 @@ size_flags_horizontal = 3
 script = ExtResource( 5 )
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Control2"]
-margin_right = 32.0
-margin_bottom = 32.0
+anchor_left = 0.269
+anchor_top = 0.5
+anchor_right = 0.269
+anchor_bottom = 0.5
+margin_left = -15.976
+margin_top = -15.5
+margin_right = 16.024
+margin_bottom = 16.5
 texture = ExtResource( 1 )
 expand = true
 
 [node name="minutos" type="Label" parent="HBoxContainer/Control2"]
-anchor_left = 0.346
-anchor_right = 0.346
-margin_left = 0.0159988
-margin_right = 32.016
-margin_bottom = 32.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.0
+margin_top = -15.5
+margin_right = 16.0
+margin_bottom = 16.5
 custom_fonts/font = SubResource( 3 )
 text = "00"
 align = 2
 valign = 1
 
 [node name="segundos" type="Label" parent="HBoxContainer/Control2"]
-anchor_left = 0.346
-anchor_right = 0.346
-margin_left = 32.016
-margin_right = 64.016
-margin_bottom = 32.0
+anchor_left = 0.808
+anchor_top = 0.5
+anchor_right = 0.808
+anchor_bottom = 0.5
+margin_left = -16.032
+margin_top = -15.5
+margin_right = 15.968
+margin_bottom = 16.5
 custom_fonts/font = SubResource( 3 )
 text = "00"
 valign = 1
@@ -132,15 +161,25 @@ texture = SubResource( 2 )
 expand = true
 
 [node name="Label" type="Label" parent="HBoxContainer/Control4"]
-margin_left = 32.0
-margin_right = 96.0
-margin_bottom = 32.0
+anchor_left = 0.615
+anchor_top = 0.5
+anchor_right = 0.615
+anchor_bottom = 0.5
+margin_left = -31.96
+margin_top = -15.5
+margin_right = 32.04
+margin_bottom = 16.5
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
 text = "00"
 align = 2
 valign = 1
 script = ExtResource( 3 )
+
+[node name="FruitsBag" type="Sprite" parent="HBoxContainer/Control4"]
+position = Vector2( 40, 16 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 10 )
 
 [connection signal="pressed" from="Control/upButton" to="Control" method="_on_upButton_pressed"]
 [connection signal="released" from="Control/upButton" to="Control" method="_on_upButton_released"]
