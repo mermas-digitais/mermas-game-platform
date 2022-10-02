@@ -3034,10 +3034,10 @@ anchor_left = 0.5
 anchor_top = 0.583
 anchor_right = 0.5
 anchor_bottom = 0.583
-margin_left = -16.0
-margin_top = -7.936
-margin_right = 16.0
-margin_bottom = 10.064
+margin_left = 32.0
+margin_top = -39.936
+margin_right = 64.0
+margin_bottom = -21.936
 texture_normal = ExtResource( 1 )
 expand = true
 
