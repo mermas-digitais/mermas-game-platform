@@ -33,18 +33,18 @@ margin_bottom = 40.0
 script = ExtResource( 11 )
 
 [node name="upButton" type="TouchScreenButton" parent="Control"]
-position = Vector2( 0, 112 )
-scale = Vector2( 0.08, 0.08 )
+position = Vector2( 0, 136 )
+scale = Vector2( 0.064, 0.056 )
 normal = ExtResource( 9 )
 passby_press = true
 
 [node name="leftButton" type="TouchScreenButton" parent="Control"]
-position = Vector2( 317, 152 )
+position = Vector2( 256, 155 )
 scale = Vector2( 0.032, 0.032 )
 normal = ExtResource( 7 )
 
 [node name="rightButton" type="TouchScreenButton" parent="Control"]
-position = Vector2( 351, 153 )
+position = Vector2( 290, 156 )
 scale = Vector2( 0.03, 0.03 )
 normal = ExtResource( 8 )
 
