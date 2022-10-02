@@ -28,6 +28,19 @@ func _physics_process(delta: float) -> void:
 	velocidadeXY = move_and_slide(velocidadeXY)
 	isGrounded = _check_is_ground()
 	_set_animation()
+	plataforma_quebrada()
+	
+func plataforma_quebrada():
+	for platforms in get_slide_count(): 
+		var collision = get_slide_collision(platforms)
+		if collision.collider.has_method(\"collide_with\"):
+			collision.collider.collide_with(collision, self)
+	#PlataformaQuebrada
+	
+		
+	
+	
+	
 	
 #movimento do personagem, que pode alterar ora para a direita, ora para a esquerda 
 func _get_input():
@@ -73,7 +86,7 @@ func _set_animation():
 	if $AnimationPlayer.assigned_animation != animar:
 		$AnimationPlayer.play(animar)
 	
-		
+
 func gameOver():
 	if vidas < 1:
 		queue_free()
@@ -358,14 +371,14 @@ shape = SubResource( 3 )
 position = Vector2( -7, 0 )
 enabled = true
 cast_to = Vector2( 0, 12 )
-collision_mask = 2
+collision_mask = 10
 
 [node name="raycast2" type="RayCast2D" parent="raycasts"]
 light_mask = 2
 position = Vector2( 7, 0 )
 enabled = true
 cast_to = Vector2( 0, 12 )
-collision_mask = 2
+collision_mask = 10
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

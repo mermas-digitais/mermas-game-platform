@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=2]
+[gd_scene load_steps=114 format=2]
 
 [ext_resource path="res://Cenas/Personagem.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Terra/Water_frames (16 x 32).png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Musicas/dudaru.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Cenas/LevelCompleto.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Interface/HUB.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Prefabs/PlataformaQuebrada.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ConvexPolygonShape2D" id=67]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -2607,7 +2608,8 @@ centered = false
 [node name="FallZone" type="Area2D" parent="."]
 modulate = Color( 1, 0, 0, 1 )
 self_modulate = Color( 1, 0, 0, 1 )
-position = Vector2( -160, 176 )
+position = Vector2( -144, 176 )
+collision_layer = 2
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone"]
@@ -2685,5 +2687,8 @@ stream = ExtResource( 13 )
 autoplay = true
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 15 )]
+
+[node name="Plataforma" parent="." instance=ExtResource( 16 )]
+position = Vector2( 512, 80 )
 
 [connection signal="body_entered" from="FallZone" to="FallZone" method="_on_FallZone_body_entered"]
