@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Items/Checkpoints/clock.png" type="Texture" id=1]
 [ext_resource path="res://Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Assets/Outros/Menu/Buttons/upButton.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Items/Checkpoints/FruitsBag.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/ControlButtons.gd" type="Script" id=11]
-[ext_resource path="res://Assets/Outros/Menu/Buttons/Volume.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=3]
 size = 12
@@ -54,10 +53,6 @@ position = Vector2( 280, 21 )
 scale = Vector2( 0.032, 0.03 )
 normal = ExtResource( 8 )
 
-[node name="muteButton2" type="TouchScreenButton" parent="Control"]
-position = Vector2( 8, -132 )
-normal = ExtResource( 12 )
-
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
@@ -67,32 +62,32 @@ margin_bottom = 32.0
 
 [node name="Control" type="Control" parent="HBoxContainer"]
 margin_right = 104.0
-margin_bottom = 31.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 script = ExtResource( 6 )
 
 [node name="vida1" type="TextureRect" parent="HBoxContainer/Control"]
-anchor_left = 0.409
-anchor_top = 0.516
-anchor_right = 0.409
-anchor_bottom = 0.516
-margin_left = -16.026
-margin_top = -15.996
-margin_right = 15.974
-margin_bottom = 16.004
+anchor_left = 0.293
+anchor_top = 0.5
+anchor_right = 0.293
+anchor_bottom = 0.5
+margin_left = -15.962
+margin_top = -15.484
+margin_right = 16.038
+margin_bottom = 16.516
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 2
 
 [node name="vida2" type="TextureRect" parent="HBoxContainer/Control"]
-anchor_left = 0.638
-anchor_top = 0.516
-anchor_right = 0.638
-anchor_bottom = 0.516
-margin_left = -15.0
-margin_top = -15.996
-margin_right = 17.0
-margin_bottom = 16.004
+anchor_left = 0.59
+anchor_top = 0.5
+anchor_right = 0.59
+anchor_bottom = 0.5
+margin_left = -16.008
+margin_top = -15.484
+margin_right = 15.992
+margin_bottom = 16.516
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 2
@@ -113,7 +108,7 @@ stretch_mode = 2
 [node name="Control2" type="Control" parent="HBoxContainer"]
 margin_left = 108.0
 margin_right = 212.0
-margin_bottom = 31.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 script = ExtResource( 5 )
 
@@ -162,7 +157,7 @@ autostart = true
 [node name="Control4" type="Control" parent="HBoxContainer"]
 margin_left = 216.0
 margin_right = 320.0
-margin_bottom = 31.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Control4"]
@@ -204,5 +199,4 @@ texture = ExtResource( 10 )
 [connection signal="released" from="Control/leftButton" to="Control" method="_on_leftButton_released"]
 [connection signal="pressed" from="Control/rightButton" to="Control" method="_on_rightButton_pressed"]
 [connection signal="released" from="Control/rightButton" to="Control" method="_on_rightButton_released"]
-[connection signal="pressed" from="Control/muteButton2" to="Control" method="_on_muteButton2_pressed"]
 [connection signal="timeout" from="HBoxContainer/Control2/Timer" to="HBoxContainer/Control2" method="_on_Timer_timeout"]

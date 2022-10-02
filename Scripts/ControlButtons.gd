@@ -17,7 +17,3 @@ func _on_rightButton_pressed():
 	
 func _on_rightButton_released():
 	Global.rightButton = false
-
-
-func _on_muteButton2_pressed():
-	Global.musicafundo = false
