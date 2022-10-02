@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=2]
+[gd_scene load_steps=115 format=2]
 
 [ext_resource path="res://Cenas/Personagem.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Terra/Water_frames (16 x 32).png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Cenas/LevelCompleto.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Interface/HUB.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Prefabs/PlataformaQuebrada.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Prefabs/trampolim.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=67]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -2638,16 +2639,28 @@ shape = SubResource( 62 )
 [node name="Apples" type="Node2D" parent="Fruits"]
 
 [node name="Apple5" parent="Fruits/Apples" instance=ExtResource( 12 )]
-position = Vector2( 766, 128 )
+position = Vector2( 809, 144 )
+
+[node name="Apple10" parent="Fruits/Apples" instance=ExtResource( 12 )]
+position = Vector2( 997, -3 )
 
 [node name="Apple6" parent="Fruits/Apples" instance=ExtResource( 12 )]
-position = Vector2( 809, 145 )
+position = Vector2( 791, 72 )
+
+[node name="Apple9" parent="Fruits/Apples" instance=ExtResource( 12 )]
+position = Vector2( 997, 26 )
 
 [node name="Apple7" parent="Fruits/Apples" instance=ExtResource( 12 )]
-position = Vector2( 794, -16 )
+position = Vector2( 800, -16 )
 
 [node name="Apple" parent="Fruits/Apples" instance=ExtResource( 12 )]
 position = Vector2( 96, 96 )
+
+[node name="Apple11" parent="Fruits/Apples" instance=ExtResource( 12 )]
+position = Vector2( -75, 75 )
+
+[node name="Apple12" parent="Fruits/Apples" instance=ExtResource( 12 )]
+position = Vector2( -75, 30 )
 
 [node name="Apple2" parent="Fruits/Apples" instance=ExtResource( 12 )]
 position = Vector2( 128, 80 )
@@ -2658,6 +2671,9 @@ position = Vector2( 304, 80 )
 [node name="Apple4" parent="Fruits/Apples" instance=ExtResource( 12 )]
 position = Vector2( 616, 113 )
 
+[node name="Apple8" parent="Fruits/Apples" instance=ExtResource( 12 )]
+position = Vector2( 997, 57 )
+
 [node name="Bananas" type="Node2D" parent="Fruits"]
 
 [node name="Banana5" parent="Fruits/Bananas" instance=ExtResource( 11 )]
@@ -2667,25 +2683,25 @@ position = Vector2( 465, 96 )
 position = Vector2( 584, 112 )
 
 [node name="Banana6" parent="Fruits/Bananas" instance=ExtResource( 11 )]
-position = Vector2( 689, 106 )
+position = Vector2( 767, 130 )
 
 [node name="Banana12" parent="Fruits/Bananas" instance=ExtResource( 11 )]
 position = Vector2( 643, 112 )
 
 [node name="Banana7" parent="Fruits/Bananas" instance=ExtResource( 11 )]
-position = Vector2( 722, 1 )
+position = Vector2( 723, 33 )
 
 [node name="Banana8" parent="Fruits/Bananas" instance=ExtResource( 11 )]
 position = Vector2( 625, 17 )
 
 [node name="Banana9" parent="Fruits/Bananas" instance=ExtResource( 11 )]
-position = Vector2( 1040, 80 )
+position = Vector2( 996, 114 )
 
 [node name="Banana10" parent="Fruits/Bananas" instance=ExtResource( 11 )]
-position = Vector2( 1072, 48 )
+position = Vector2( 997, 144 )
 
 [node name="Banana11" parent="Fruits/Bananas" instance=ExtResource( 11 )]
-position = Vector2( 1104, 80 )
+position = Vector2( 997, 85 )
 
 [node name="Banana" parent="Fruits/Bananas" instance=ExtResource( 11 )]
 position = Vector2( 192, 64 )
@@ -2696,6 +2712,12 @@ position = Vector2( 224, 64 )
 [node name="Banana4" parent="Fruits/Bananas" instance=ExtResource( 11 )]
 position = Vector2( 176, 144 )
 
+[node name="Banana14" parent="Fruits/Bananas" instance=ExtResource( 11 )]
+position = Vector2( -75, 53 )
+
+[node name="Banana15" parent="Fruits/Bananas" instance=ExtResource( 11 )]
+position = Vector2( -75, 8 )
+
 [node name="Banana3" parent="Fruits/Bananas" instance=ExtResource( 11 )]
 position = Vector2( 222, 116 )
 
@@ -2703,19 +2725,28 @@ position = Vector2( 222, 116 )
 process_priority = 1
 stream = ExtResource( 13 )
 autoplay = true
+area_mask = 3
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 15 )]
 
-[node name="Plataforma" parent="." instance=ExtResource( 16 )]
+[node name="Plataformas" type="Node2D" parent="."]
+
+[node name="Plataforma" parent="Plataformas" instance=ExtResource( 16 )]
 position = Vector2( 511, 65 )
 
-[node name="Plataforma2" parent="." instance=ExtResource( 16 )]
-position = Vector2( 722, 39 )
+[node name="Plataforma2" parent="Plataformas" instance=ExtResource( 16 )]
+position = Vector2( 725, 49 )
 
-[node name="Plataforma3" parent="." instance=ExtResource( 16 )]
-position = Vector2( 801, 9 )
+[node name="Plataforma3" parent="Plataformas" instance=ExtResource( 16 )]
+position = Vector2( 802, 1 )
 
-[node name="Plataforma4" parent="." instance=ExtResource( 16 )]
-position = Vector2( 771, 85 )
+[node name="Plataforma4" parent="Plataformas" instance=ExtResource( 16 )]
+position = Vector2( 794, 90 )
+
+[node name="trampolim" parent="Plataformas" instance=ExtResource( 17 )]
+position = Vector2( 999, 162 )
+
+[node name="trampolim2" parent="Plataformas" instance=ExtResource( 17 )]
+position = Vector2( -73, 83 )
 
 [connection signal="body_entered" from="FallZone" to="FallZone" method="_on_FallZone_body_entered"]

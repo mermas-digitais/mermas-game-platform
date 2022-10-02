@@ -3011,9 +3011,8 @@ centered = false
 
 [node name="Textura" type="Sprite" parent="."]
 position = Vector2( 112, 83 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 hframes = 2
-frame = 1
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 autoplay = "Ferir"
