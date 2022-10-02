@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=2]
+[gd_scene load_steps=115 format=2]
 
 [ext_resource path="res://Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Home.gd" type="Script" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://Assets/Background parts/6 - Distant_trees.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Background parts/5 - Tree_row_BG_2.png" type="Texture" id=11]
 [ext_resource path="res://Cenas/Personagem.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Outros/Menu/Buttons/Close.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Outros/Menu/Buttons/Achievements.png" type="Texture" id=14]
+[ext_resource path="res://Interface/Hometransparent.tres" type="Theme" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=160]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -2519,6 +2522,13 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 133/shapes = [  ]
 133/z_index = 0
 
+[sub_resource type="DynamicFont" id=255]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=159]
 size = 10
 outline_size = 2
@@ -2613,6 +2623,11 @@ position = Vector2( 80, 96 )
 collision_mask = 14
 script = null
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.352941 )
+
 [node name="TextureButton" type="TextureButton" parent="."]
 anchor_left = 0.575
 anchor_top = 0.448
@@ -2623,8 +2638,47 @@ margin_top = -14.016
 margin_right = -1.52588e-05
 margin_bottom = -0.0160065
 rect_scale = Vector2( 2, 2 )
+action_mode = 0
 texture_normal = ExtResource( 3 )
 expand = true
+
+[node name="OptionsBtn" type="Button" parent="."]
+anchor_left = 0.111
+anchor_top = 0.083
+anchor_right = 0.111
+anchor_bottom = 0.083
+margin_left = -27.52
+margin_top = -7.936
+margin_right = 19.96
+margin_bottom = 8.064
+theme = ExtResource( 15 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.611765, 0.611765, 0.611765, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 255 )
+text = "Sobre"
+icon = ExtResource( 14 )
+expand_icon = true
+
+[node name="QuitBtn" type="Button" parent="."]
+anchor_left = 0.919
+anchor_top = 0.083
+anchor_right = 0.919
+anchor_bottom = 0.083
+margin_left = -19.96
+margin_top = -7.936
+margin_right = 19.92
+margin_bottom = 9.064
+theme = ExtResource( 15 )
+custom_colors/font_color_hover = Color( 0.611765, 0.611765, 0.611765, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 255 )
+text = "Sair"
+icon = ExtResource( 13 )
+icon_align = 2
+expand_icon = true
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.425
@@ -2665,3 +2719,5 @@ text = "Aprendendo Através de Jogos
 Mermãs Digitais 2022"
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="OptionsBtn" to="." method="_on_OptionsBtn_pressed"]
+[connection signal="pressed" from="QuitBtn" to="." method="_on_QuitBtn_pressed"]
