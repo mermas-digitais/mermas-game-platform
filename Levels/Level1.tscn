@@ -2677,7 +2677,7 @@ position = Vector2( 176, 144 )
 position = Vector2( 222, 116 )
 
 [node name="LevelCompleto" parent="." instance=ExtResource( 14 )]
-position = Vector2( 628, 1 )
+position = Vector2( 632, 0 )
 
 [node name="AudioFundo" type="AudioStreamPlayer2D" parent="."]
 process_priority = 1
