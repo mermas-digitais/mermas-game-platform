@@ -5,7 +5,6 @@ var ponto = 1
 func _on_Item_body_entered(body):
 	$AnimationPlayer.play("coletada")
 	Global.frutas += ponto
-	print(Global.frutas)
 	
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "coletada":
