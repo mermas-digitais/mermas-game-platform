@@ -337,7 +337,6 @@ script = SubResource( 4 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 hframes = 5
-frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Parado"
