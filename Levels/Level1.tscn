@@ -3836,7 +3836,7 @@ process_priority = 1
 stream = ExtResource( 13 )
 autoplay = true
 max_distance = 4000.0
-area_mask = 2
+area_mask = 127
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 15 )]
 

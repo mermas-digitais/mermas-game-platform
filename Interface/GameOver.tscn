@@ -3029,14 +3029,14 @@ anchor_bottom = 1.0
 color = Color( 0.145098, 0, 0.254902, 0.411765 )
 
 [node name="TextureButton" type="TextureButton" parent="ColorRect"]
-anchor_left = 0.65
-anchor_top = 0.422
-anchor_right = 0.65
-anchor_bottom = 0.422
+anchor_left = 0.5
+anchor_top = 0.562
+anchor_right = 0.5
+anchor_bottom = 0.562
 margin_left = -16.0
-margin_top = -9.02401
+margin_top = -8.90401
 margin_right = 16.0
-margin_bottom = 8.97599
+margin_bottom = 9.09599
 texture_normal = ExtResource( 1 )
 expand = true
 
