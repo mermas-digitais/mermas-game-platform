@@ -30,16 +30,6 @@ func _physics_process(delta: float) -> void:
 	_set_animation()
 	plataforma_quebrada()
 	
-func plataforma_quebrada():
-	for platforms in get_slide_count(): 
-		var collision = get_slide_collision(platforms)
-		if collision.collider.has_method(\"collide_with\"):
-			collision.collider.collide_with(collision, self)
-	#PlataformaQuebrada
-	
-		
-	
-	
 	
 	
 #movimento do personagem, que pode alterar ora para a direita, ora para a esquerda 
@@ -92,6 +82,13 @@ func gameOver():
 		queue_free()
 		get_tree().change_scene(\"res://Interface/GameOver.tscn\")
 	
+
+#PlataformaQuebrada	
+func plataforma_quebrada():
+	for platforms in get_slide_count(): 
+		var collision = get_slide_collision(platforms)
+		if collision.collider.has_method(\"collide_with\"):
+			collision.collider.collide_with(collision, self)
 "
 
 [sub_resource type="Animation" id=11]
