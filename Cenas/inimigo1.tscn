@@ -196,4 +196,5 @@ enabled = true
 cast_to = Vector2( -22, 0 )
 collision_mask = 2
 
+[connection signal="child_entered_tree" from="CollisionShape2D" to="." method="_on_CollisionShape2D_child_entered_tree"]
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

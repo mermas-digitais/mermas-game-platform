@@ -71,36 +71,9 @@ anchor_left = 0.293
 anchor_top = 0.5
 anchor_right = 0.293
 anchor_bottom = 0.5
-margin_left = -15.962
-margin_top = -15.484
-margin_right = 16.038
-margin_bottom = 16.516
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 2
-
-[node name="vida2" type="TextureRect" parent="HBoxContainer/Control"]
-anchor_left = 0.59
-anchor_top = 0.5
-anchor_right = 0.59
-anchor_bottom = 0.5
-margin_left = -16.008
-margin_top = -15.484
-margin_right = 15.992
-margin_bottom = 16.516
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 2
-
-[node name="vida3" type="TextureRect" parent="HBoxContainer/Control"]
-anchor_left = 0.887
-anchor_top = 0.516
-anchor_right = 0.887
-anchor_bottom = 0.516
-margin_left = -16.012
-margin_top = -15.996
-margin_right = 15.988
-margin_bottom = 16.004
+margin_left = 17.528
+margin_right = 50.528
+margin_bottom = 31.0
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 2

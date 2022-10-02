@@ -21,6 +21,11 @@ onready var raycasts = $raycasts
 var vidas = 3
 var maxVidas = 3
 
+signal change_vida(vidas)
+
+func _ready()->void:
+	connect(\"change_vida\", get_parent().get_node(\"CanvasLayer/HBoxContainer/Control\"),\"on_change_vida\")
+	emit_signal(\"change_vida\",maxVidas)
 
 func _physics_process(delta: float) -> void:
 	velocidadeXY.y += gravidade * delta #personagem com gravidade

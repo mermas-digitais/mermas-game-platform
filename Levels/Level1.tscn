@@ -3865,3 +3865,5 @@ position = Vector2( 999, 162 )
 position = Vector2( -74, 83 )
 
 [connection signal="body_entered" from="FallZone" to="FallZone" method="_on_FallZone_body_entered"]
+
+[editable path="CanvasLayer"]

@@ -29,3 +29,7 @@ func _on_anim_animation_finished(anim_name: String) -> void:
 		direcaoMovimento *= -1
 		$anim.play("run")
 		
+
+
+func _on_CollisionShape2D_child_entered_tree(node):
+	print("tocou")
