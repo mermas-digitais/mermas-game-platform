@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var velocidade = 32
-export var vida = 1
+export var vida = 2
 var movimento =  Vector2.ZERO
 var direcaoMovimento = -1
 var gravidade = 1200
@@ -16,10 +16,9 @@ func _physics_process(delta: float) -> void:
 		$texture.flip_h = true
 	else:
 		$texture.flip_h = false
-	
-	if $Ray_wall.is_colliding():
-		$anim.play("idle")
-	
+	_set_animation()
+	#if $Ray_wall.is_colliding():
+		#$anim.play("idle")
 	movimento = move_and_slide(movimento)
 	
 func _on_anim_animation_finished(anim_name: String) -> void:
@@ -29,7 +28,25 @@ func _on_anim_animation_finished(anim_name: String) -> void:
 		direcaoMovimento *= -1
 		$anim.play("run")
 		
+func _set_animation():	
+	var anim_name ="run"	
+	if $Ray_wall.is_colliding():
+		anim_name="idle"
+	elif movimento.x != 0:
+		anim_name = "run"
+	if hitted == true:
+		anim_name = "hit"
+	if $anim.assigned_animation != anim_name:
+		$anim.play(anim_name)
 
-
-func _on_CollisionShape2D_child_entered_tree(node):
-	print("tocou")
+func _on_hitbox_body_entered(body):
+	hitted = true
+	vida -= 1
+	body.velocidadeXY.y -= 300
+	yield(get_tree().create_timer(0.2),"timeout")
+	hitted = false
+	
+	if vida < 1:
+		queue_free()
+		get_node("hitbox/Collision").set_deferred("disabled",true)
+	
