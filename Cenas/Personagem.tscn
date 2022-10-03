@@ -377,7 +377,7 @@ script = SubResource( 4 )
 
 [node name="Textura" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
