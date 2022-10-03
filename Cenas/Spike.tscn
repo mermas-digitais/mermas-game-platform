@@ -8,7 +8,7 @@ extents = Vector2( 12.25, 4 )
 
 [node name="Spike" type="KinematicBody2D"]
 position = Vector2( 8, 0 )
-collision_layer = 16
+collision_layer = 144
 collision_mask = 3
 script = ExtResource( 4 )
 

@@ -11,3 +11,4 @@ func _on_hitbox_body_entered(body):
 	yield(get_tree().create_timer(0.2),"timeout")
 	Global.frutas = 0
 	hitted = false
+	get_node("p")
