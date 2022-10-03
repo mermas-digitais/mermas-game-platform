@@ -66,7 +66,6 @@ func _check_is_ground():
 	for raycast in raycasts.get_children():
 		if raycast.is_colliding():
 			return true
-			
 	return false
 		
 #mudar as animações
@@ -121,7 +120,7 @@ func _on_HurtBox_body_entered(body):
 		get_tree().change_scene(\"res://Interface/GameOver.tscn\")
 
 
-func _on_AreaBox_body_entered(body):
+func _on_Area2D_body_entered(body):
 	_on_HurtBox_body_entered(body)
 "
 
@@ -375,7 +374,6 @@ extents = Vector2( 8, 8 )
 [sub_resource type="RectangleShape2D" id=12]
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 10, 5 )
 
 [node name="Personagem" type="KinematicBody2D"]
 light_mask = 2
@@ -445,13 +443,11 @@ position = Vector2( 0, -16 )
 shape = SubResource( 12 )
 
 [node name="FooterBox" type="Area2D" parent="."]
+collision_layer = 256
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FooterBox"]
-modulate = Color( 0.843137, 0, 0.745098, 1 )
-position = Vector2( 0, -2 )
-scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 13 )
 
 [connection signal="body_entered" from="HurtBox" to="." method="_on_HurtBox_body_entered"]
-[connection signal="body_entered" from="FooterBox" to="." method="_on_AreaBox_body_entered"]
+[connection signal="body_entered" from="FooterBox" to="." method="_on_Area2D_body_entered"]

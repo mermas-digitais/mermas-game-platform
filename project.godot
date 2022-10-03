@@ -103,7 +103,8 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_5="Inimigos"
 2d_physics/layer_6="Hurtbox"
 2d_physics/layer_7="Hitbox"
-2d_physics/layer_8="espinho"
+2d_physics/layer_8="Spike"
+2d_physics/layer_9="FooterBox"
 
 [physics]
 
