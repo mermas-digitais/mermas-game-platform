@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Spike.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Outros/Traps/Spikes/Idle.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12.25, 3.375 )
+
+[node name="Spike" type="KinematicBody2D"]
+position = Vector2( 8, 0 )
+collision_layer = 16
+collision_mask = 3
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -8, -8 )
+scale = Vector2( 1.6875, 1.03125 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -9, -3.625 )
+shape = SubResource( 1 )
+
+[connection signal="child_entered_tree" from="." to="." method="_on_inimigo1_child_entered_tree"]

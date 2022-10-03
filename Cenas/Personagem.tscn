@@ -90,6 +90,7 @@ func _set_animation():
 func gameOver():
 	if vidas < 1:
 		queue_free()
+		Global.frutas = 0
 		get_tree().change_scene(\"res://Interface/GameOver.tscn\")
 	
 
@@ -116,6 +117,7 @@ func _on_HurtBox_body_entered(body):
 	anim_ferido = false
 	if vidas < 1:
 		queue_free()
+		Global.frutas = 0
 		get_tree().reload_current_scene()
 "
 
