@@ -17,3 +17,6 @@ func _on_rightButton_pressed():
 	
 func _on_rightButton_released():
 	Global.rightButton = false
+
+func _on_QuitButton_pressed():
+	get_tree().change_scene("res://Interface/Home.tscn")

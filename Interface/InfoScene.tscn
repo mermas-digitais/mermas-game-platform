@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://ControlScene.gd" type="Script" id=2]
 [ext_resource path="res://Interface/Hometransparent.tres" type="Theme" id=3]
 [ext_resource path="res://Assets/Outros/Menu/Buttons/Back.png" type="Texture" id=4]
+[ext_resource path="res://Interface/InstagramQrCode.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 8
@@ -61,15 +62,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -144.0
-margin_top = -49.5
-margin_right = 144.0
-margin_bottom = 49.5
+margin_left = -150.0
+margin_top = -54.0
+margin_right = 153.0
+margin_bottom = 45.0
 custom_fonts/font = SubResource( 2 )
-text = "Jogo desenvolvido durante a oficina Aprendendo Através de Jogos do projeto Mermãs Digitais 2022 - IFMA
-
+text = "Seja bem vindo ao Game of Mermãs.
+Se prepara, pois essa aventura será extraordinária!
 "
-align = 1
 valign = 3
 autowrap = true
 
@@ -78,13 +78,18 @@ anchor_left = 0.525
 anchor_top = 0.833
 anchor_right = 0.525
 anchor_bottom = 0.833
-margin_left = -144.0
+margin_left = -159.0
 margin_top = -7.936
-margin_right = 24.0
+margin_right = 9.0
 margin_bottom = 17.064
 custom_fonts/font = SubResource( 3 )
 text = "Nos siga no instagram: @mermasdigitais"
 valign = 3
 autowrap = true
+
+[node name="InstagramQrCode" type="Sprite" parent="Label3"]
+position = Vector2( 246.625, -12.625 )
+scale = Vector2( 0.0185469, 0.0185469 )
+texture = ExtResource( 5 )
 
 [connection signal="pressed" from="OptionsBtn" to="." method="_on_OptionsBtn_pressed"]

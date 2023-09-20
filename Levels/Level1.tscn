@@ -3679,10 +3679,11 @@ motion_scale = Vector2( 0.3, 1 )
 motion_mirroring = Vector2( 576, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer6"]
-position = Vector2( 0, -128 )
+position = Vector2( 14, 47 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 centered = false
+offset = Vector2( -7, -87.5 )
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.4, 1 )
@@ -3846,14 +3847,19 @@ position = Vector2( -75, 8 )
 [node name="Banana3" parent="Fruits/Bananas" instance=ExtResource( 11 )]
 position = Vector2( 282, 133 )
 
-[node name="AudioFundo" type="AudioStreamPlayer2D" parent="."]
-process_priority = 1
-stream = ExtResource( 13 )
-autoplay = true
-max_distance = 4000.0
-area_mask = 127
-
 [node name="CanvasLayer" parent="." instance=ExtResource( 15 )]
+
+[node name="leftButton" parent="CanvasLayer/Control" index="1"]
+position = Vector2( 240, 12 )
+scale = Vector2( 0.04, 0.04 )
+
+[node name="rightButton" parent="CanvasLayer/Control" index="2"]
+position = Vector2( 280, 14.4375 )
+scale = Vector2( 0.039, 0.0365625 )
+
+[node name="vida1" parent="CanvasLayer/HBoxContainer/Control" index="0"]
+margin_left = 25.528
+margin_right = 58.528
 
 [node name="Plataformas" type="Node2D" parent="."]
 
@@ -3874,6 +3880,11 @@ position = Vector2( 994, 163 )
 
 [node name="trampolim2" parent="Plataformas" instance=ExtResource( 17 )]
 position = Vector2( -74, 83 )
+
+[node name="AudioFundo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+autoplay = true
+mix_target = 1
 
 [connection signal="body_entered" from="FallZone" to="FallZone" method="_on_FallZone_body_entered"]
 
