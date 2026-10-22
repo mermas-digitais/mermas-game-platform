@@ -195,7 +195,7 @@ anims/run = SubResource( 2 )
 position = Vector2( -5, -9 )
 enabled = true
 cast_to = Vector2( -22, 0 )
-collision_mask = 2
+collision_mask = 518
 
 [node name="hitbox" parent="." instance=ExtResource( 5 )]
 modulate = Color( 0.760784, 0.572549, 0, 1 )
@@ -204,7 +204,6 @@ position = Vector2( 0, -16 )
 [node name="Collision" parent="hitbox" index="0"]
 position = Vector2( 0, -1.625 )
 
-[connection signal="child_entered_tree" from="." to="." method="_on_inimigo1_child_entered_tree"]
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 

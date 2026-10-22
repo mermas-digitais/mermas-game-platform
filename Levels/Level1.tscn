@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=2]
+[gd_scene load_steps=162 format=2]
 
 [ext_resource path="res://Cenas/Personagem.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Terra/Water_frames (16 x 32).png" type="Texture" id=2]
@@ -22,6 +22,12 @@
 [ext_resource path="res://Assets/Terra/Bubbling_Oil_frames (16 x 32).png" type="Texture" id=20]
 [ext_resource path="res://Cenas/Spike.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Cenas/inimigoPIG.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Cenas/inimigoSlime.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Cenas/inimigoBat.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Cenas/inimigoBunny.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Prefabs/LimiteInvisivel.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Interface/PauseMenu.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Interface/ControlsOverlay.tscn" type="PackedScene" id=28]
 
 [sub_resource type="ConvexPolygonShape2D" id=67]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -3655,16 +3661,37 @@ position = Vector2( -120, -28 )
 collision_mask = 14
 
 [node name="inimigo1" parent="." instance=ExtResource( 18 )]
-position = Vector2( 928, 176 )
+position = Vector2( 858, 179 )
 
 [node name="inimigoPIG" parent="." instance=ExtResource( 22 )]
-position = Vector2( 317, 145 )
+position = Vector2( 317, 144 )
+
+[node name="inimigoSlime" parent="." instance=ExtResource( 23 )]
+position = Vector2( 190, 140 )
+
+[node name="inimigoSlime2" parent="." instance=ExtResource( 23 )]
+position = Vector2( 58, 140 )
+
+[node name="inimigoBat" parent="." instance=ExtResource( 24 )]
+position = Vector2( 400, -10 )
+
+[node name="inimigoBat2" parent="." instance=ExtResource( 24 )]
+position = Vector2( 813, 49 )
+
+[node name="inimigoBunny" parent="." instance=ExtResource( 25 )]
+position = Vector2( 661, 30 )
+
+[node name="inimigoBunny2" parent="." instance=ExtResource( 25 )]
+position = Vector2( 931, 175 )
 
 [node name="Spike" parent="." instance=ExtResource( 21 )]
 position = Vector2( 168, -48 )
 
 [node name="Spike2" parent="." instance=ExtResource( 21 )]
 position = Vector2( 392, 32 )
+
+[node name="Spike3" parent="." instance=ExtResource( 21 )]
+position = Vector2( 644, 32 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -3739,7 +3766,7 @@ centered = false
 modulate = Color( 1, 0, 0, 1 )
 self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( -144, 176 )
-collision_layer = 2
+collision_layer = 0
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone"]
@@ -3800,6 +3827,15 @@ position = Vector2( 616, 113 )
 [node name="Apple8" parent="Fruits/Apples" instance=ExtResource( 12 )]
 position = Vector2( 992, 57 )
 
+[node name="Apple13" parent="Fruits/Apples" instance=ExtResource( 12 )]
+position = Vector2( 450, 48 )
+
+[node name="Apple14" parent="Fruits/Apples" instance=ExtResource( 12 )]
+position = Vector2( 557, 112 )
+
+[node name="Apple15" parent="Fruits/Apples" instance=ExtResource( 12 )]
+position = Vector2( 700, -16 )
+
 [node name="Bananas" type="Node2D" parent="Fruits"]
 
 [node name="Banana5" parent="Fruits/Bananas" instance=ExtResource( 11 )]
@@ -3847,6 +3883,12 @@ position = Vector2( -75, 8 )
 [node name="Banana3" parent="Fruits/Bananas" instance=ExtResource( 11 )]
 position = Vector2( 282, 133 )
 
+[node name="Banana16" parent="Fruits/Bananas" instance=ExtResource( 11 )]
+position = Vector2( 400, 48 )
+
+[node name="Banana17" parent="Fruits/Bananas" instance=ExtResource( 11 )]
+position = Vector2( 550, 48 )
+
 [node name="CanvasLayer" parent="." instance=ExtResource( 15 )]
 
 [node name="leftButton" parent="CanvasLayer/Control" index="1"]
@@ -3885,6 +3927,19 @@ position = Vector2( -74, 83 )
 stream = ExtResource( 13 )
 autoplay = true
 mix_target = 1
+
+[node name="LimiteAgua1" parent="." instance=ExtResource( 26 )]
+position = Vector2( 72, 140 )
+
+[node name="LimiteAgua2" parent="." instance=ExtResource( 26 )]
+position = Vector2( 472, 140 )
+
+[node name="LimiteLava" parent="." instance=ExtResource( 26 )]
+position = Vector2( 1208, 140 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 27 )]
+
+[node name="ControlsOverlay" parent="." instance=ExtResource( 28 )]
 
 [connection signal="body_entered" from="FallZone" to="FallZone" method="_on_FallZone_body_entered"]
 

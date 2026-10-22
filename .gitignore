@@ -1,0 +1,22 @@
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/
+
+# Godot import cache
+.import/
+
+# Build artifacts
+*.exe
+*.pck
+GoM.zip
+
+# Temp files
+*.tmp
+
+# Test files
+test_enemies.gd
+test_enemies_out.txt
+
+# Tool config
+.agents/
+.claude/
+skills-lock.json

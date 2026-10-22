@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	
 func _on_anim_animation_finished(anim_name: String) -> void:
 	if anim_name == "idle":
-		$texture.flip_h != $texture.flip_h
+		$texture.flip_h = !$texture.flip_h
 		$Ray_wall.scale.x *= -1
 		direcaoMovimento *= -1
 		$anim.play("run")
